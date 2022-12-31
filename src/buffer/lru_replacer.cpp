@@ -23,7 +23,7 @@ bool LRUReplacer::Victim(frame_id_t *frame_id) {
   if (this->Size() == 0) {
     return false;
   }
-  *frame_id = *(lru_queue_.begin());
+  *frame_id = lru_queue_.front();
   lru_hash_.erase(*frame_id);
   lru_queue_.pop_front();
   return true;
